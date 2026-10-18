@@ -1,5 +1,6 @@
 import express from "express";
 
+import BlogController from "./controllers/BlogController.js";
 import MembrosController from "./controllers/MembrosController.js";
 
 const app = express();
@@ -8,6 +9,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
 
+app.use("/", BlogController);
 app.use("/", MembrosController);
 
 app.get("/", (req, res) => {

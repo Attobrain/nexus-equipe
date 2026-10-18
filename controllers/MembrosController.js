@@ -1,6 +1,8 @@
 
 import express from "express";
 
+import { posts } from "./BlogController.js";
+
 const route = express.Router();
 
 
@@ -67,6 +69,7 @@ route.get("/", (req, res) => {
     res.render("index", {
     title: "Nexus | Equipe",
     membros,
+    posts
 });
 });
 

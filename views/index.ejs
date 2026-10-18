@@ -124,3 +124,58 @@
 </section>
 
 
+<section class="nexus-blog" id="blog" aria-labelledby="nexus-blog-title">
+  <div class="nexus-blog__inner">
+    <header class="nexus-blog__heading">
+      <p class="nexus-blog__eyebrow">NOVIDADES DA NEXUS</p>
+      <h2 class="nexus-blog__title" id="nexus-blog-title">Por dentro do projeto</h2>
+      <p class="nexus-blog__description">
+        Acompanhe as atualizações, ideias e etapas do desenvolvimento compartilhadas pela nossa equipe.
+      </p>
+    </header>
+
+    <div class="nexus-blog__grid">
+      <% if (Array.isArray(posts) && posts.length > 0) { %>
+        <% posts.slice().reverse().forEach((post) => { %>
+          <article class="nexus-post-card">
+            <div class="nexus-post-card__meta">
+              <span class="nexus-post-card__category"><%= post.categoria || "Atualização" %></span>
+              <% if (post.data) { %>
+                <span class="nexus-post-card__date"><%= post.data %></span>
+              <% } %>
+            </div>
+
+            <h3 class="nexus-post-card__title"><%= post.titulo %></h3>
+
+            <% if (post.resumo) { %>
+              <p class="nexus-post-card__summary"><%= post.resumo %></p>
+            <% } %>
+
+            <% if (post.conteudo) { %>
+              <details class="nexus-post-card__details">
+                <summary class="nexus-post-card__read-more">
+                  <span>Ler publicação</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5 12h13M13 6l6 6-6 6" />
+                  </svg>
+                </summary>
+                <div class="nexus-post-card__content">
+                  <p><%= post.conteudo %></p>
+                </div>
+              </details>
+            <% } %>
+
+            <footer class="nexus-post-card__footer">
+              <span class="nexus-post-card__author-label">Publicado por</span>
+              <span class="nexus-post-card__author"><%= post.autor || "Equipe Nexus" %></span>
+            </footer>
+          </article>
+        <% }); %>
+      <% } else { %>
+        <p class="nexus-blog__empty">
+          As novidades da Nexus aparecerão aqui em breve.
+        </p>
+      <% } %>
+    </div>
+  </div>
+</section>
