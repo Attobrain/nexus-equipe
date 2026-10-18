@@ -1,0 +1,264 @@
+
+/* ===== CADASTRO DE MEMBROS - NEXUS ===== */
+
+.cadastro-membro,
+.cadastro-membro * {
+    box-sizing: border-box;
+}
+
+.cadastro-membro {
+    --cadastro-purple: #a855f7;
+    --cadastro-purple-light: #c084fc;
+    --cadastro-text: #faf8ff;
+    --cadastro-muted: #c9c2d8;
+
+    min-height: 80vh;
+    padding: 52px 24px 64px;
+    color: var(--cadastro-text);
+    background:
+        radial-gradient(
+            ellipse at 85% 0%,
+            rgba(126, 34, 206, .14),
+            transparent 42%
+        ),
+        linear-gradient(180deg, #090713 0%, #080612 100%);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.cadastro-membro__container {
+    width: min(100%, 720px);
+    margin: 0 auto;
+}
+
+/* Link para voltar */
+
+.cadastro-membro__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    color: #d2a0ff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.cadastro-membro__back svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cadastro-membro__back:hover {
+    color: #ffffff;
+}
+
+/* Título */
+
+.cadastro-membro__heading {
+    margin-bottom: 28px;
+}
+
+.cadastro-membro__eyebrow {
+    margin: 0 0 10px;
+    color: var(--cadastro-purple-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .09em;
+}
+
+.cadastro-membro__heading h1 {
+    margin: 0;
+    color: var(--cadastro-text);
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 750;
+    letter-spacing: -.04em;
+    line-height: 1.15;
+}
+
+.cadastro-membro__description {
+    max-width: 540px;
+    margin: 14px 0 0;
+    color: var(--cadastro-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Painel do formulário */
+
+.cadastro-membro__panel {
+    padding: 30px;
+    border: 1px solid rgba(168, 85, 247, .24);
+    border-radius: 12px;
+    background: linear-gradient(
+        145deg,
+        rgba(19, 15, 35, .96),
+        rgba(11, 8, 22, .96)
+    );
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .2);
+}
+
+.cadastro-membro__form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.cadastro-membro__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cadastro-membro__field label {
+    color: #eee7ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cadastro-membro__field input,
+.cadastro-membro__field textarea {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 14px;
+    border: 1px solid rgba(192, 132, 252, .22);
+    border-radius: 7px;
+    outline: none;
+    background: #0b0816;
+    color: var(--cadastro-text);
+    font: inherit;
+    font-size: 13px;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.cadastro-membro__field textarea {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.cadastro-membro__field input::placeholder,
+.cadastro-membro__field textarea::placeholder {
+    color: #827991;
+    opacity: 1;
+}
+
+.cadastro-membro__field input:focus,
+.cadastro-membro__field textarea:focus {
+    border-color: var(--cadastro-purple);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, .13);
+}
+
+.cadastro-membro__hint {
+    color: #a69bb9;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Separador */
+
+.cadastro-membro__divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 9px 0 1px;
+    color: var(--cadastro-purple-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.cadastro-membro__divider::after {
+    flex: 1;
+    height: 1px;
+    background: rgba(168, 85, 247, .22);
+    content: "";
+}
+
+/* Botões */
+
+.cadastro-membro__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 9px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(192, 132, 252, .14);
+}
+
+.cadastro-membro__button {
+    display: inline-flex;
+    min-height: 43px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.cadastro-membro__button svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.cadastro-membro__button--primary {
+    border-color: rgba(216, 180, 254, .25);
+    background: linear-gradient(110deg, #a855f7, #7e22ce);
+    color: #ffffff;
+}
+
+.cadastro-membro__button--primary:hover {
+    background: linear-gradient(110deg, #b86bff, #9333ea);
+    box-shadow: 0 7px 20px rgba(168, 85, 247, .22);
+    transform: translateY(-2px);
+}
+
+.cadastro-membro__button--secondary {
+    border-color: rgba(192, 132, 252, .25);
+    background: rgba(168, 85, 247, .06);
+    color: #e9d5ff;
+}
+
+.cadastro-membro__button--secondary:hover {
+    border-color: var(--cadastro-purple);
+    background: rgba(168, 85, 247, .14);
+    color: #ffffff;
+}
+
+.cadastro-membro__button:focus-visible,
+.cadastro-membro__back:focus-visible {
+    outline: 2px solid #d8b4fe;
+    outline-offset: 4px;
+}
+
+/* Rodapé do formulário */
+
+.cadastro-membro__footnote {
+    margin: 17px 0 0;
+    color: #a69bb9;
+    font-size: 11px;
+}

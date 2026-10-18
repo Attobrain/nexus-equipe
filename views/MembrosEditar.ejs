@@ -1,0 +1,154 @@
+
+<%- include("partials/header.ejs") %>
+<%- include("partials/navbar.ejs") %>
+
+<main class="cadastro-membro">
+    <div class="cadastro-membro__container">
+
+        <a href="/membros" class="cadastro-membro__back">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Voltar para os membros
+        </a>
+
+        <header class="cadastro-membro__heading">
+            <p class="cadastro-membro__eyebrow">EQUIPE NEXUS</p>
+
+            <h1>Editar membro</h1>
+
+            <p class="cadastro-membro__description">
+                Atualize as informações de <%= membro.nome %>.
+            </p>
+        </header>
+
+        <section class="cadastro-membro__panel">
+            <form action="/membros/alterar"
+                  method="POST"
+                  class="cadastro-membro__form">
+
+                <input
+                    type="hidden"
+                    name="id"
+                    value="<%= membro.id %>"
+                >
+
+                <div class="cadastro-membro__field">
+                    <label for="nome">Nome completo *</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value="<%= membro.nome %>"
+                        placeholder="Digite o nome completo"
+                        required
+                    >
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="iniciais">Iniciais *</label>
+                    <input
+                        type="text"
+                        id="iniciais"
+                        name="iniciais"
+                        value="<%= membro.iniciais %>"
+                        maxlength="5"
+                        placeholder="Ex.: MT"
+                        required
+                    >
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="cargo">Cargo na equipe *</label>
+                    <input
+                        type="text"
+                        id="cargo"
+                        name="cargo"
+                        value="<%= membro.cargo %>"
+                        placeholder="Ex.: Desenvolvedor Backend"
+                        required
+                    >
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="descricao">Descrição</label>
+                    <textarea
+                        id="descricao"
+                        name="descricao"
+                        rows="4"
+                        placeholder="Descrição do integrante"
+                    ><%= membro.descricao || "" %></textarea>
+                </div>
+
+
+                <div class="cadastro-membro__field">
+                    <label for="imagem">Caminho da imagem</label>
+                    <input
+                        type="text"
+                        id="imagem"
+                        name="imagem"
+                        value="<%= membro.imagem || '' %>"
+                        placeholder="/images/membros/nome.jpg"
+                    >
+                </div>
+
+                <div class="cadastro-membro__divider">
+                    <span>Redes sociais e portfólio</span>
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="github">GitHub</label>
+                    <input
+                        type="url"
+                        id="github"
+                        name="github"
+                        value="<%= membro.github || '' %>"
+                        placeholder="https://github.com/usuario"
+                    >
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="linkedin">LinkedIn</label>
+                    <input
+                        type="url"
+                        id="linkedin"
+                        name="linkedin"
+                        value="<%= membro.linkedin || '' %>"
+                        placeholder="https://linkedin.com/in/usuario"
+                    >
+                </div>
+
+                <div class="cadastro-membro__field">
+                    <label for="portfolio">Portfólio</label>
+                    <input
+                        type="url"
+                        id="portfolio"
+                        name="portfolio"
+                        value="<%= membro.portfolio || '' %>"
+                        placeholder="https://meuportfolio.com"
+                    >
+                </div>
+                <div class="cadastro-membro__actions">
+                    <a href="/"
+                       class="cadastro-membro__button cadastro-membro__button--secondary">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="cadastro-membro__button cadastro-membro__button--primary"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        Salvar alterações
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+</main>
+
+<%- include("partials/footer.ejs") %>

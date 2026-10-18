@@ -1,76 +1,161 @@
 
 import express from "express";
-
+import Membro from "../models/Membros.js";
 import { posts } from "./BlogController.js";
 
 const route = express.Router();
 
-
 // Rota principal da landing page
-route.get("/", (req, res) => {
+route.get("/", function (req, res) {
+    Membro.findAll()
+        .then(membros => {
+            res.render("index", {
+                title: "Nexus | Equipe",
+                membros: membros,
+                posts: posts
+            });
+        })
+        .catch(error => {
+            console.log(
+                `Ocorreu um erro ao listar os membros. ERRO: ${error}`
+            );
 
-    const membros = [
-    {
-        id: 1,
-        nome: "Laura Mathias",
-        iniciais: "LM",
-        cargo: "Desenvolvedor Full Stack",
-        descricao: "Apaixonado por tecnologia, gosto de resolver problemas e transformar ideias em código.",
-        imagem: "/images/membros/laura-mathias.jpg",
-        github: "",
-        linkedin: "",
-        portfolio: ""
-    },
-    {
-        id: 2,
-        nome: "Luiz Henrique Cubas",
-        iniciais: "LC",
-        cargo: "Desenvolvedor Frontend",
-        descricao: "Gosto de criar interfaces intuitivas e experiências que fazem a diferença.",
-        imagem: "/images/membros/luiz-cubas.jpg",
-        github: "",
-        linkedin: "",
-        portfolio: ""
-    },
-    {
-        id: 3,
-        nome: "Mario Takahashi",
-        iniciais: "MT",
-        cargo: "Desenvolvedor Backend",
-        descricao: "Focado em APIs, bancos de dados e em construir sistemas robustos e escaláveis.",
-        imagem: "/images/membros/mario-takahashi.jpg",
-        github: "",
-        linkedin: "",
-        portfolio: ""
-    },
-    {
-        id: 4,
-        nome: "Millie Morelli",
-        iniciais: "MM",
-        cargo: "UX/UI Designer",
-        descricao: "Acredito que um bom design torna a tecnologia mais acessível e humana.",
-        imagem: "/images/membros/millie-morelli.jpg",
-        github: "",
-        linkedin: "",
-        portfolio: ""
-    },
-     {
-        id: 5,
-        nome: "Victor Theodoro",
-        iniciais: "VT",
-        cargo: "UX/UI Designer",
-        descricao: "Acredito que um bom design torna a tecnologia mais acessível e humana.",
-        imagem: "/images/membros/victor-theodoro.jpg",
-        github: "",
-        linkedin: "",
-        portfolio: ""
-    }
-];
-    res.render("index", {
-    title: "Nexus | Equipe",
-    membros,
-    posts
+            res.status(500).send("Erro ao carregar a página.");
+        });
 });
+
+// Rota de listagem dos membros
+route.get("/membros", function (req, res) {
+    Membro.findAll()
+        .then(membros => {
+            res.render("membros", {
+                membros: membros
+            });
+        })
+        .catch(error => {
+            console.log(
+                `Ocorreu um erro ao listar os membros. ERRO: ${error}`
+            );
+        });
 });
+
+// ROTA DE CADASTRO DE MEMBRO
+route.get("/membros/cadastrar", (req, res) => {
+
+    // Abrindo a página de cadastro
+    res.render("MembrosCadastrar");
+
+});
+
+// ROTA QUE CADASTRA O MEMBRO
+route.post("/membros/cadastrar", (req, res) => {
+
+    // Coletando os dados do formulário
+    const nome = req.body.nome;
+    const iniciais = req.body.iniciais;
+    const cargo = req.body.cargo;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+    const github = req.body.github;
+    const linkedin = req.body.linkedin;
+    const portfolio = req.body.portfolio;
+
+    // Chamando o model para gravar os dados no banco
+    Membro.create({
+        nome: nome,
+        iniciais: iniciais,
+        cargo: cargo,
+        descricao: descricao,
+        imagem: imagem,
+        github: github,
+        linkedin: linkedin,
+        portfolio: portfolio
+
+    }).then(() => {
+
+        // Redirecionando após o cadastro
+        res.redirect("/");
+
+    }).catch(error => {
+
+        console.log(
+            `Ocorreu um erro ao cadastrar o membro. ERRO: ${error}`
+        );
+
+    });
+
+});
+
+//ROTA DE EDIÇÃO DE membro
+route.get("/membros/editar/:id", (req, res)=>{
+    //Coletando o parâmetro do URL
+    const id = req.params.id;
+    //Buscando o clube no banco pelo ID
+    Membro.findByPk(id).then(membro=>{
+        res.render("MembrosEditar",{
+            //enviando um objeto com os dados do membro para a página
+            membro: membro,
+        })
+    }).catch(error=>(`Ocorreu um erro ao buscar o clube. ERRO${error}`));
+});
+
+// ROTA QUE ALTERA OS DADOS DO MEMBRO
+route.post("/membros/alterar", (req, res) => {
+
+    // Coletando os dados do formulário
+    const id = req.body.id;
+    const nome = req.body.nome;
+    const iniciais = req.body.iniciais;
+    const cargo = req.body.cargo;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+    const github = req.body.github;
+    const linkedin = req.body.linkedin;
+    const portfolio = req.body.portfolio;
+
+    // Chamando o model para alterar os dados no banco
+    Membro.update(
+        {
+            nome: nome,
+            iniciais: iniciais,
+            cargo: cargo,
+            descricao: descricao,
+            imagem: imagem,
+            github: github,
+            linkedin: linkedin,
+            portfolio: portfolio
+        },
+        {
+            where: {
+                id: id
+            }
+        }
+    )
+    .then(() => {
+        res.redirect("/");
+    })
+    .catch(error => {
+        console.log(
+            `Ocorreu um erro ao alterar o membro. ERRO: ${error}`
+        );
+    });
+
+});
+
+// rota de excluir membro
+route.get("/membros/excluir/:id", (req, res) => {
+    const id = req.params.id;
+
+    Membro.destroy({
+        where: {
+            id: id,
+        },
+    }).then(()=> {
+        res.redirect("/");
+    }).catch(error=>{
+        console.log(`Ocorreu um erro ao excluir o membro. ERRO: ${error}`);
+    });
+});
+
 
 export default route;
