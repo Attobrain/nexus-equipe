@@ -40,7 +40,7 @@ database: 'nexus_team',
 
 Salve e execute o projeto novamente. A partir daí, a aplicação poderá se conectar diretamente ao banco `nexus_team`.
 
-> Atenção: o nome correto é `nexus_team` (com **s** no final de `team`). Se o banco ou a tabela `membros` não forem criados automaticamente, abra o MySQL Workbench ou outro cliente MySQL e execute os comandos manuais abaixo.
+> Atenção: o nome correto é `nexus_team` (sem **s** no final de `team`). Se o banco ou a tabela `membros` não forem criados automaticamente, abra o MySQL Workbench ou outro cliente MySQL e execute os comandos manuais abaixo.
 
 ### Criar o banco e a tabela manualmente
 
