@@ -1,0 +1,172 @@
+:root {
+  --nexus-team-bg: #080612;
+  --nexus-team-card: rgba(15, 12, 29, .78);
+  --nexus-team-border: rgba(168, 85, 247, .23);
+  --nexus-team-purple: #b86bff;
+  --nexus-team-purple-light: #d2a0ff;
+  --nexus-team-text: #faf8ff;
+  --nexus-team-muted: #c9c2d8;
+}
+
+.nexus-team,
+.nexus-team * { box-sizing: border-box; }
+
+.nexus-team {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 5vw, 66px) 0 clamp(48px, 5.6vw, 72px);
+  color: var(--nexus-team-text);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(91, 33, 182, .075), transparent 43%),
+    linear-gradient(180deg, #090713 0%, var(--nexus-team-bg) 100%);
+  border-bottom: 1px solid rgba(192, 132, 252, .14);
+  scroll-margin-top: 90px;
+}
+
+.nexus-team__inner {
+  width: min(100% - 64px, 1320px);
+  margin-inline: auto;
+}
+
+.nexus-team__heading { max-width: 680px; margin-bottom: 26px; }
+
+.nexus-team__eyebrow {
+  margin: 0 0 8px;
+  color: var(--nexus-team-purple-light);
+  font: 700 12px/1.4 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: .075em;
+}
+
+.nexus-team__title {
+  margin: 0;
+  color: var(--nexus-team-text);
+  font: 760 clamp(29px, 2.7vw, 38px)/1.12 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: -.035em;
+}
+
+.nexus-team__description {
+  margin: 12px 0 0;
+  color: var(--nexus-team-muted);
+  font: 400 14px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.nexus-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.nexus-member-card {
+  min-width: 0;
+  padding: 22px 20px 24px;
+  border: 1px solid var(--nexus-team-border);
+  border-radius: 7px;
+  background: linear-gradient(145deg, rgba(19, 15, 35, .92), var(--nexus-team-card));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.nexus-member-card:hover {
+  border-color: rgba(192, 132, 252, .48);
+  background: linear-gradient(145deg, rgba(24, 17, 45, .96), rgba(13, 10, 25, .9));
+  transform: translateY(-3px);
+}
+
+.nexus-member-card__avatar {
+  position: relative;
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  border: 1px solid rgba(216, 180, 254, .2);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(216, 180, 254, .34), transparent 31%),
+    linear-gradient(140deg, #3b1d62, #171026 68%, #25163b);
+  box-shadow: 0 7px 24px rgba(5, 2, 14, .28);
+}
+
+.nexus-member-card__initials {
+  color: #f6eaff;
+  font: 700 25px/1 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: -.04em;
+}
+
+.nexus-member-card__photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nexus-member-card__name {
+  margin: 0;
+  color: #fbf9ff;
+  font: 700 17px/1.35 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: -.02em;
+}
+
+.nexus-member-card__role {
+  min-height: 19px;
+  margin: 5px 0 0;
+  color: var(--nexus-team-purple);
+  font: 500 12px/1.5 Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.nexus-member-card__socials {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 22px;
+  margin: 16px 0 15px;
+}
+
+.nexus-member-card__social {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  align-items: center;
+  justify-content: center;
+  color: #c9b9e8;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.nexus-member-card__social svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.nexus-member-card__social[href]:hover {
+  color: #d8b4fe;
+  transform: translateY(-2px);
+}
+
+.nexus-member-card__social[href]:focus-visible {
+  outline: 2px solid #d8b4fe;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.nexus-member-card__social--inactive { opacity: .78; }
+
+.nexus-member-card__bio {
+  margin: 0;
+  color: #c9c2d8;
+  font: 400 12px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.nexus-team__empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 26px;
+  border: 1px dashed var(--nexus-team-border);
+  border-radius: 8px;
+  color: var(--nexus-team-muted);
+  text-align: center;
+}
