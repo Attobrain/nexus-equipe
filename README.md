@@ -15,14 +15,14 @@ npm install
 
 ## 2. Configurar o banco de dados
 
-O banco utilizado pelo projeto se chama **`nexus_teams`**. Confira o arquivo `config/sequelize-config.js` e verifique se o nome do banco, o usuário, a senha e o endereço do MySQL correspondem à sua instalação.
+O banco utilizado pelo projeto se chama **`nexus_team`**. Confira o arquivo `config/sequelize-config.js` e verifique se o nome do banco, o usuário, a senha e o endereço do MySQL correspondem à sua instalação.
 
 O projeto está preparado para sincronizar as tabelas usando o Sequelize. Se o banco ou a tabela `membros` não forem criados automaticamente, abra o MySQL Workbench ou outro cliente MySQL e execute os comandos abaixo.
 
 ### Criar o banco e a tabela manualmente
 
 ```sql
-CREATE DATABASE IF NOT EXISTS nexus_teams;
+CREATE DATABASE IF NOT EXISTS nexus_team;
 USE nexus_teams;
 
 CREATE TABLE IF NOT EXISTS membros (
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS membros (
 Se a tabela estiver vazia e os integrantes não forem inseridos automaticamente, execute este comando no mesmo banco `nexus_teams`:
 
 ```sql
-USE nexus_teams;
+USE nexus_team;
 
 INSERT INTO membros (
     nome, iniciais, cargo, descricao, imagem,
@@ -110,14 +110,14 @@ Quando o servidor iniciar, abra no navegador o endereço local e a porta informa
 Para verificar se os cinco integrantes estão cadastrados, execute no MySQL:
 
 ```sql
-USE nexus_teams;
+USE nexus_team;
 SELECT * FROM membros;
 ```
 
 ## Problemas comuns
 
 - **Erro de conexão:** confira se o MySQL está em execução e se as credenciais em `config/sequelize-config.js` estão corretas.
-- **Banco não encontrado:** crie o banco `nexus_teams` com o comando SQL acima e confirme que a configuração do Sequelize usa exatamente esse nome.
+- **Banco não encontrado:** crie o banco `nexus_team` com o comando SQL acima e confirme que a configuração do Sequelize usa exatamente esse nome.
 - **Tabela ou integrantes ausentes:** crie a tabela e execute o `INSERT` manualmente, conforme as instruções acima.
 
 ---
