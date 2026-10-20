@@ -114,12 +114,22 @@
             </div>
 
             <p class="nexus-member-card__bio"><%= membro.descricao %></p>
-             <a href="/membros/editar/<%= membro.id %>" class="btn-editar-membro">
-    <span class="btn-editar-membro__icon">+</span>
-    Editar membro </a>
-    <a href="/membros/excluir/<%= membro.id %>" class="btn-excluir-membro" onclick="return confirm('Deseja mesmo excluir este Membro?')" >
-    <span class="btn-cadastrar-membro__icon">+</span>
-    Excluir membro </a>
+             <div class="nexus-member-card__actions">
+
+    <a href="/membros/editar/<%= membro.id %>"
+       class="btn-editar-membro">
+        <span class="btn-editar-membro__icon" aria-hidden="true">✎</span>
+        Editar membro
+    </a>
+
+    <a href="/membros/excluir/<%= membro.id %>"
+       class="btn-excluir-membro"
+       onclick="return confirm('Deseja mesmo excluir este membro?')">
+        <span class="btn-excluir-membro__icon" aria-hidden="true">×</span>
+        Excluir membro
+    </a>
+
+</div>
           </article>
           </article>
           

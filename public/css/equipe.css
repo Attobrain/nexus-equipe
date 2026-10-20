@@ -171,43 +171,94 @@
   text-align: center;
 }
 
+/* ===== BOTÃO CADASTRAR MEMBRO ===== */
+
 .btn-cadastrar-membro {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    padding: 12px 20px;
-    border: 1px solid rgba(192, 132, 252, 0.4);
-    border-radius: 10px;
-    background: linear-gradient(110deg, #a855f7, #7e22ce);
-    color: #fff;
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-}
+    gap: 10px;
 
-.btn-cadastrar-membro:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.25);
+    margin: 32px auto 0;
+    padding: 13px 24px;
+
+    border: 1px solid rgba(216, 180, 254, 0.35);
+    border-radius: 8px;
+
+    background: linear-gradient(110deg, #a855f7, #7e22ce);
+    color: #ffffff;
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 6px 20px rgba(126, 34, 206, 0.15);
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
 }
 
 .btn-cadastrar-membro__icon {
-    font-size: 21px;
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 400;
     line-height: 1;
+}
+
+.btn-cadastrar-membro:hover {
+    background: linear-gradient(110deg, #b86bff, #9333ea);
+    color: #ffffff;
+
+    box-shadow: 0 9px 26px rgba(168, 85, 247, 0.28);
+    transform: translateY(-2px);
+}
+
+.btn-cadastrar-membro:focus-visible {
+    outline: 2px solid #d8b4fe;
+    outline-offset: 4px;
+}
+
+.btn-cadastrar-membro:active {
+    transform: translateY(0);
+}
+
+
+.nexus-member-card__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(192, 132, 252, 0.14);
 }
 
 /* ===== BOTÃO EDITAR MEMBRO ===== */
 
 .btn-editar-membro {
     display: inline-flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
-    gap: 9px;
+    gap: 8px;
+
+    min-width: 0;
     min-height: 40px;
-    padding: 10px 17px;
+    padding: 10px 12px;
 
     border: 1px solid rgba(192, 132, 252, 0.35);
     border-radius: 8px;
@@ -216,38 +267,42 @@
     color: #ffffff;
 
     font-family: Inter, "Segoe UI", Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-
+    text-align: center;
     text-decoration: none;
+    white-space: nowrap;
+
     cursor: pointer;
 
     transition:
         background 180ms ease,
+        border-color 180ms ease,
         box-shadow 180ms ease,
         transform 180ms ease;
 }
 
-/* Ícone do botão */
 .btn-editar-membro__icon {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
 
     width: 19px;
     height: 19px;
 
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.15);
 
     color: #ffffff;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1;
 }
 
-/* Efeito hover */
 .btn-editar-membro:hover {
+    border-color: rgba(216, 180, 254, 0.6);
     background: linear-gradient(110deg, #b86bff, #9333ea);
     color: #ffffff;
 
@@ -255,13 +310,11 @@
     transform: translateY(-2px);
 }
 
-/* Acessibilidade */
 .btn-editar-membro:focus-visible {
     outline: 2px solid #d8b4fe;
     outline-offset: 4px;
 }
 
-/* Clique */
 .btn-editar-membro:active {
     transform: translateY(0);
 }
@@ -270,11 +323,14 @@
 
 .btn-excluir-membro {
     display: inline-flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
-    gap: 9px;
+    gap: 8px;
+
+    min-width: 0;
     min-height: 40px;
-    padding: 10px 17px;
+    padding: 10px 12px;
 
     border: 1px solid rgba(248, 113, 113, 0.35);
     border-radius: 8px;
@@ -283,36 +339,40 @@
     color: #ffffff;
 
     font-family: Inter, "Segoe UI", Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-
+    text-align: center;
     text-decoration: none;
+    white-space: nowrap;
+
     cursor: pointer;
 
     transition:
         background 180ms ease,
+        border-color 180ms ease,
         box-shadow 180ms ease,
         transform 180ms ease;
 }
 
-/* Ícone de exclusão */
 .btn-excluir-membro__icon {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
 
     width: 19px;
     height: 19px;
 
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.13);
 
     color: #ffffff;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 400;
     line-height: 1;
 }
 
-/* Efeito ao passar o mouse */
 .btn-excluir-membro:hover {
     border-color: rgba(252, 165, 165, 0.7);
     background: linear-gradient(110deg, #ef4444, #b91c1c);
@@ -322,13 +382,11 @@
     transform: translateY(-2px);
 }
 
-/* Acessibilidade */
 .btn-excluir-membro:focus-visible {
     outline: 2px solid #fca5a5;
     outline-offset: 4px;
 }
 
-/* Ao clicar */
 .btn-excluir-membro:active {
     transform: translateY(0);
 }

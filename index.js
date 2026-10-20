@@ -27,10 +27,12 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME};`).then(() => {
 
 import BlogController from "./controllers/BlogController.js";
 import MembrosController from "./controllers/MembrosController.js";
+import LoginController from "./controllers/LoginController.js";
 
 
 app.use("/", BlogController);
 app.use("/", MembrosController);
+app.use("/", LoginController);
 
 app.get("/", (req, res) => {
     res.render('index');
@@ -44,3 +46,4 @@ app.listen(port, (error) => {
         console.log(`Servidor iniciado com sucesso em: http://localhost:${port}`);
     }
 })
+

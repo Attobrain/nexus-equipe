@@ -5,6 +5,7 @@ import { posts } from "./BlogController.js";
 
 const route = express.Router();
 
+
 // Rota principal da landing page
 route.get("/", function (req, res) {
     Membro.findAll()
@@ -19,8 +20,6 @@ route.get("/", function (req, res) {
             console.log(
                 `Ocorreu um erro ao listar os membros. ERRO: ${error}`
             );
-
-            res.status(500).send("Erro ao carregar a página.");
         });
 });
 
