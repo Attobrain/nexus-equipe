@@ -1,1 +1,66 @@
-<h1>login</h1>
+
+<%- include("partials/header.ejs") %>
+<%- include("partials/navbar.ejs") %>
+
+<main class="nexus-login-page">
+    <section class="nexus-login-card" aria-labelledby="login-title">
+
+        <div class="nexus-login-card__brand">
+            <div class="nexus-login-card__symbol" aria-hidden="true">
+                N
+            </div>
+            <span>NEXUS</span>
+        </div>
+
+        <header class="nexus-login-card__heading">
+            <p class="nexus-login-card__eyebrow">BEM-VINDO DE VOLTA</p>
+            <h1 id="login-title">Entre na sua conta</h1>
+            <p>Acesse sua conta para continuar.</p>
+        </header>
+
+        <form action="/autenticar"
+              method="POST"
+              class="nexus-login-form">
+
+            <div class="nexus-login-form__field">
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="seuemail@exemplo.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="nexus-login-form__field">
+                <label for="password">Senha</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Digite sua senha"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="nexus-login-form__button">
+                Entrar na conta
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </button>
+
+        </form>
+
+        <div class="nexus-login-card__register">
+            <span>Não possui conta?</span>
+            <a href="/cadastro">Cadastre-se</a>
+        </div>
+
+    </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

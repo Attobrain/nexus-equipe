@@ -27,14 +27,14 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME};`).then(() => {
 
 import BlogController from "./controllers/BlogController.js";
 import MembrosController from "./controllers/MembrosController.js";
-import LoginController from "./controllers/LoginController.js";
+import UsuariosController from "./controllers/UsuariosController.js";
 
 
 app.use("/", BlogController);
 app.use("/", MembrosController);
-app.use("/", LoginController);
+app.use("/", UsuariosController);
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => {5
     res.render('index');
 });
 
