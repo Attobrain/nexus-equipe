@@ -2,7 +2,16 @@ import express from "express";
 
 import connection from "./config/sequelize-config.js";
 
+import session from "express-session"
+
 const app = express();
+
+app.use(session({
+    secret: "users_secret",
+    cookie:{maxAge: 3600000},//Sessão expira em 1 hr
+    saveUninitialized: false,
+    resave: false
+}));
 
 app.use(express.urlencoded({extended: false}));
 

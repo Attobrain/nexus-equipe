@@ -17,6 +17,45 @@ router.get("/logout", (req, res)=>{
   res.redirect("/");
 })
 
+//ROTA DE AUTENTICAÇÃO
+router.post("/autenticar", (req, res)=>{
+    //Coletando os dados do usuário
+    const email = req.body.email
+    const password = req.body.password
+    //Buscando o usuário no banco
+    Usuario.findOne({where: {email: email}}).then((usuario) =>{
+        //SE O USUÁRIO EXISTIR
+        if(usuario != undefined){
+            //VALIDANDO A SENHA(HASH)
+            const senhaCorreta = bcrypt.compareSync(password, usuario.password);
+            //Se A SENHA FOR VÁLIDA
+            if(senhaCorreta){
+                //AUTORIZA O LOGIN E CRIA A SESÃO PARA O USUÁRIO
+                req.session.user = {
+                  id: usuario.id,
+                  email: usuario.email,
+                };
+              
+                //res.send(`Usuário logado: <br> 
+                  //ID: ${req.session.user["id"]} <br>
+                 // E-mail: ${req.session.user["email"]}`);
+
+                res.redirect("/");
+                //SE A SENHA FOR INVÁLIDA      
+            }else{
+                res.send(` Senha inválida!<br>
+                    Verifique os dados e tente novamente!<br>
+                    <a href="/login">Voltar</a>`);
+            }
+        //SE O USUÁRIO NÃO EXISTIR    
+        }else{
+            res.send(`Usuário não existe!<br>
+                Verifique os dados e tente novamente!<br>
+                <a href="/login">Voltar</a>`);
+        }
+    });
+});
+
 // Rota de cadastro
 router.get("/cadastro", (req, res) => {
   res.render("cadastro",{
