@@ -6,12 +6,19 @@ import session from "express-session"
 
 const app = express();
 
+
+
 app.use(session({
     secret: "users_secret",
     cookie:{maxAge: 3600000},//Sessão expira em 1 hr
     saveUninitialized: false,
     resave: false
 }));
+
+app.use((req, res, next) => {
+    res.locals.usuario = req.session?.user || null;
+    next();
+});
 
 app.use(express.urlencoded({extended: false}));
 

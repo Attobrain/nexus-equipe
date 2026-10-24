@@ -34,6 +34,7 @@ router.post("/autenticar", (req, res)=>{
                 req.session.user = {
                   id: usuario.id,
                   email: usuario.email,
+                  ADM: Number(usuario.ADM),
                 };
               
                 //res.send(`Usuário logado: <br> 
@@ -78,9 +79,10 @@ router.post("/cadastro/novo", (req, res) => {
       const hash = bcrypt.hashSync(password, salt);
 
       //Enviando para o banco de dados
-      Usuario.create({
+       Usuario.create({
         email: email,
         password: hash,
+        ADM: 0
       })
         .then(() => res.redirect("/login"))
         .catch((error) => {

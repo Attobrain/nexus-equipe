@@ -10,6 +10,11 @@ const Usuario = connection.define("usuarios", {
         type: Sequelize.STRING,
         allowNull: false,
     },
+     ADM: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
 });
 
 Usuario.sync({force:false});

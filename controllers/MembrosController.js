@@ -3,7 +3,24 @@ import express from "express";
 import Membro from "../models/Membros.js";
 import { posts } from "./BlogController.js";
 
+import Auth from "../middlewares/Auth.js";
+import Admin from "../middlewares/Admin.js";
+
 const route = express.Router();
+
+function apenasAdmin(req, res, next) {
+    if (!req.session?.user) {
+        return res.redirect("/login");
+    }
+
+    if (Number(req.session.user.ADM) !== 1) {
+        return res.status(403).send(
+            "Acesso negado. Apenas administradores podem realizar esta ação."
+        );
+    }
+
+    next();
+}
 
 
 // Rota principal da landing page
@@ -39,7 +56,7 @@ route.get("/membros", function (req, res) {
 });
 
 // ROTA DE CADASTRO DE MEMBRO
-route.get("/membros/cadastrar", (req, res) => {
+route.get("/membros/cadastrar", Auth, Admin,(req, res) => {
 
     // Abrindo a página de cadastro
     res.render("MembrosCadastrar");
@@ -47,7 +64,7 @@ route.get("/membros/cadastrar", (req, res) => {
 });
 
 // ROTA QUE CADASTRA O MEMBRO
-route.post("/membros/cadastrar", (req, res) => {
+route.post("/membros/cadastrar", Auth, Admin, (req, res) => {
 
     // Coletando os dados do formulário
     const nome = req.body.nome;
@@ -86,7 +103,7 @@ route.post("/membros/cadastrar", (req, res) => {
 });
 
 //ROTA DE EDIÇÃO DE membro
-route.get("/membros/editar/:id", (req, res)=>{
+route.get("/membros/editar/:id", apenasAdmin, Auth, Admin,  (req, res)=>{
     //Coletando o parâmetro do URL
     const id = req.params.id;
     //Buscando o clube no banco pelo ID
@@ -99,7 +116,7 @@ route.get("/membros/editar/:id", (req, res)=>{
 });
 
 // ROTA QUE ALTERA OS DADOS DO MEMBRO
-route.post("/membros/alterar", (req, res) => {
+route.post("/membros/alterar", apenasAdmin, Auth, Admin, (req, res) => {
 
     // Coletando os dados do formulário
     const id = req.body.id;
@@ -142,7 +159,7 @@ route.post("/membros/alterar", (req, res) => {
 });
 
 // rota de excluir membro
-route.get("/membros/excluir/:id", (req, res) => {
+route.get("/membros/excluir/:id", apenasAdmin, Auth, Admin,  (req, res) => {
     const id = req.params.id;
 
     Membro.destroy({
