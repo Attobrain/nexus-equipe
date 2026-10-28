@@ -44,9 +44,7 @@ router.post("/autenticar", (req, res)=>{
                 res.redirect("/");
                 //SE A SENHA FOR INVÁLIDA      
             }else{
-                res.send(` Senha inválida!<br>
-                    Verifique os dados e tente novamente!<br>
-                    <a href="/login">Voltar</a>`);
+                res.render("loginInvalido");
             }
         //SE O USUÁRIO NÃO EXISTIR    
         }else{
