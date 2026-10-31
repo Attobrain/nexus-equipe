@@ -189,12 +189,7 @@
     border: 1px solid rgba(84, 35, 247, .25);
     border-radius: 8px;
 
-    background: linear-gradient(
-        110deg,
-        #5423F7,
-        #244FB2,
-        #0A6E7D
-    );
+    background:#5423F7;
 
     color: #F5F7FB;
 

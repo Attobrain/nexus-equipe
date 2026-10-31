@@ -126,7 +126,9 @@ Na raiz do projeto, execute:
 node index.js
 ```
 
-Quando o servidor iniciar, abra no navegador o endereço local e a porta informados no terminal (por exemplo, `http://localhost:3000`, caso a aplicação use a porta 3000).
+Quando o servidor iniciar, abra no navegador:
+
+[http://localhost:8080](http://localhost:8080)
 
 ## 4. Conferir os dados
 
@@ -137,11 +139,27 @@ USE nexus_team;
 SELECT * FROM membros;
 ```
 
+### Conferir os usuários administradores
+
+Para listar as contas de usuário que possuem permissão administrativa (`ADM = 1`), execute:
+
+```sql
+USE nexus_team;
+
+-- Conferindo os usuários administradores
+SELECT id, email, ADM
+FROM usuarios
+WHERE ADM = 1;
+```
+
+Se nenhuma conta aparecer, confira se os usuários foram cadastrados na tabela `usuarios` e se a coluna `ADM` está definida como `1` para as contas que devem ser administradoras. Os registros da tabela `membros` são diferentes das contas de login da tabela `usuarios`.
+
 ## Problemas comuns
 
 - **Erro de conexão:** confira se o MySQL está em execução e se as credenciais em `config/sequelize-config.js` estão corretas.
 - **Banco não encontrado:** crie o banco `nexus_team` com o comando SQL acima e confirme que a configuração do Sequelize usa exatamente esse nome.
 - **Tabela ou integrantes ausentes:** crie a tabela e execute o `INSERT` manualmente, conforme as instruções acima.
+- **Nenhum administrador listado:** verifique a tabela `usuarios` e confirme que a coluna `ADM` existe e que as contas administrativas têm valor `1`.
 
 ---
 
