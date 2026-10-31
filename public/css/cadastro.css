@@ -1,4 +1,13 @@
 
+:root {
+    --register-purple: #5423F7;
+    --register-blue: #244FB2;
+    --register-teal: #0A6E7D;
+    --register-bg: #F5F7FB;
+    --register-border: #E5E7EB;
+    --register-text: #202124;
+    --register-muted: rgba(32, 33, 36, .72);
+}
 
 .nexus-register-page,
 .nexus-register-page * {
@@ -6,11 +15,6 @@
 }
 
 .nexus-register-page {
-    --register-purple: #a855f7;
-    --register-purple-light: #c084fc;
-    --register-text: #faf8ff;
-    --register-muted: #c9c2d8;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,16 +26,16 @@
 
     background:
         radial-gradient(
-            ellipse at 15% 15%,
-            rgba(126, 34, 206, .15),
-            transparent 38%
+            ellipse at 15% 20%,
+            rgba(84, 35, 247, .035),
+            transparent 40%
         ),
         radial-gradient(
-            ellipse at 90% 85%,
-            rgba(168, 85, 247, .10),
-            transparent 35%
+            ellipse at 85% 80%,
+            rgba(36, 79, 178, .025),
+            transparent 38%
         ),
-        linear-gradient(180deg, #090713 0%, #080612 100%);
+        #F5F7FB;
 
     font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
@@ -40,20 +44,15 @@
     width: min(100%, 440px);
     padding: 38px;
 
-    border: 1px solid rgba(168, 85, 247, .25);
+    border: 1px solid var(--register-border);
     border-radius: 14px;
 
-    background: linear-gradient(
-        145deg,
-        rgba(19, 15, 35, .97),
-        rgba(11, 8, 22, .98)
-    );
+    background: #F5F7FB;
 
     box-shadow:
-        0 24px 65px rgba(0, 0, 0, .30),
-        0 0 45px rgba(126, 34, 206, .05);
+        0 24px 65px rgba(32, 33, 36, .07),
+        0 0 35px rgba(84, 35, 247, .035);
 }
-
 
 .nexus-register-card__brand {
     display: flex;
@@ -63,7 +62,7 @@
 
     margin-bottom: 34px;
 
-    color: #faf8ff;
+    color: var(--register-text);
     font-size: 19px;
     font-weight: 750;
     letter-spacing: .22em;
@@ -75,19 +74,19 @@
     height: 39px;
     place-items: center;
 
-    border: 1px solid rgba(216, 180, 254, .45);
+    border: 1px solid var(--register-border);
     border-radius: 10px;
 
-    background: linear-gradient(135deg, #c084fc, #7e22ce);
+    background: var(--register-purple);
+
     color: #ffffff;
 
     font-size: 23px;
     font-weight: 800;
     letter-spacing: -.04em;
 
-    box-shadow: 0 5px 20px rgba(126, 34, 206, .22);
+    box-shadow: 0 5px 20px rgba(84, 35, 247, .15);
 }
-
 
 .nexus-register-card__heading {
     margin-bottom: 27px;
@@ -97,7 +96,7 @@
 .nexus-register-card__eyebrow {
     margin: 0 0 10px;
 
-    color: var(--register-purple-light);
+    color: var(--register-purple);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: .10em;
@@ -121,7 +120,6 @@
     line-height: 1.6;
 }
 
-
 .nexus-register-form {
     display: flex;
     flex-direction: column;
@@ -135,7 +133,7 @@
 }
 
 .nexus-register-form__field label {
-    color: #eee7ff;
+    color: var(--register-text);
     font-size: 13px;
     font-weight: 600;
 }
@@ -145,11 +143,11 @@
     min-height: 47px;
     padding: 13px 14px;
 
-    border: 1px solid rgba(192, 132, 252, .22);
+    border: 1px solid var(--register-border);
     border-radius: 8px;
     outline: none;
 
-    background: #0b0816;
+    background: #F5F7FB;
     color: var(--register-text);
 
     font-family: inherit;
@@ -162,27 +160,26 @@
 }
 
 .nexus-register-form__field input::placeholder {
-    color: #827991;
+    color: rgba(32, 33, 36, .45);
     opacity: 1;
 }
 
 .nexus-register-form__field input:hover {
-    border-color: rgba(192, 132, 252, .42);
+    border-color: rgba(84, 35, 247, .35);
 }
 
 .nexus-register-form__field input:focus {
     border-color: var(--register-purple);
-    background: #0e0a1b;
+    background: #F5F7FB;
 
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, .13);
+    box-shadow: 0 0 0 3px rgba(84, 35, 247, .10);
 }
 
 .nexus-register-form__hint {
-    color: #a69bb9;
+    color: var(--register-muted);
     font-size: 11px;
     line-height: 1.5;
 }
-
 
 .nexus-register-form__button {
     display: flex;
@@ -195,10 +192,16 @@
     margin-top: 5px;
     padding: 12px 18px;
 
-    border: 1px solid rgba(216, 180, 254, .30);
+    border: 1px solid rgba(84, 35, 247, .25);
     border-radius: 8px;
 
-    background: linear-gradient(110deg, #a855f7, #7e22ce);
+    background: linear-gradient(
+        110deg,
+        var(--register-purple),
+        var(--register-blue),
+        var(--register-teal)
+    );
+
     color: #ffffff;
 
     font-family: inherit;
@@ -207,7 +210,7 @@
 
     cursor: pointer;
 
-    box-shadow: 0 6px 20px rgba(126, 34, 206, .15);
+    box-shadow: 0 6px 20px rgba(84, 35, 247, .14);
 
     transition:
         transform 180ms ease,
@@ -229,8 +232,10 @@
 }
 
 .nexus-register-form__button:hover {
-    filter: brightness(1.10);
-    box-shadow: 0 9px 26px rgba(168, 85, 247, .27);
+    filter: brightness(1.08);
+
+    box-shadow: 0 9px 26px rgba(84, 35, 247, .22);
+
     transform: translateY(-2px);
 }
 
@@ -243,7 +248,7 @@
 }
 
 .nexus-register-form__button:focus-visible {
-    outline: 2px solid #e9d5ff;
+    outline: 2px solid var(--register-purple);
     outline-offset: 4px;
 }
 
@@ -257,7 +262,7 @@
     margin-top: 26px;
     padding-top: 22px;
 
-    border-top: 1px solid rgba(192, 132, 252, .14);
+    border-top: 1px solid var(--register-border);
 
     font-size: 12px;
     text-align: center;
@@ -268,7 +273,7 @@
 }
 
 .nexus-register-card__login a {
-    color: var(--register-purple-light);
+    color: var(--register-purple);
     font-weight: 650;
     text-decoration: none;
 
@@ -276,13 +281,12 @@
 }
 
 .nexus-register-card__login a:hover {
-    color: #ffffff;
+    color: var(--register-blue);
     text-decoration: underline;
 }
 
 .nexus-register-card__login a:focus-visible {
-    outline: 2px solid #d8b4fe;
+    outline: 2px solid var(--register-purple);
     outline-offset: 4px;
     border-radius: 2px;
 }
-

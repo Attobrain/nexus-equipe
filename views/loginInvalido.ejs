@@ -1,0 +1,55 @@
+
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<main class="nexus-login-page">
+    <section class="nexus-login-card nexus-login-invalid">
+
+        <div class="nexus-login-card__brand">
+            <div class="nexus-login-card__symbol">N</div>
+            <span>NEXUS</span>
+        </div>
+
+        <div class="nexus-login-invalid__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 8v5"></path>
+                <path d="M12 16.5h.01"></path>
+            </svg>
+        </div>
+
+        <div class="nexus-login-card__heading">
+            <p class="nexus-login-card__eyebrow">
+                ACESSO NÃO REALIZADO
+            </p>
+
+            <h1>Ops! Algo deu errado.</h1>
+
+            <p>
+                O e-mail ou a senha informados estão incorretos.
+                Confira seus dados e tente novamente.
+            </p>
+        </div>
+
+        <div class="nexus-login-invalid__message" role="alert">
+            <strong>Não foi possível entrar na sua conta.</strong>
+            <span>Verifique suas credenciais antes de continuar.</span>
+        </div>
+
+        <a href="/login" class="nexus-login-form__button">
+            Tentar novamente
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+            </svg>
+        </a>
+
+        <div class="nexus-login-invalid__footer">
+            <a href="/">Voltar para o início</a>
+        </div>
+
+    </section>
+</main>
+
+<%- include("partials/footer") %>

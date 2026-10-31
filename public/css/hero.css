@@ -1,197 +1,317 @@
+
 :root {
-  --nexus-hero-purple: #a855f7;
-  --nexus-hero-purple-light: #c084fc;
-  --nexus-hero-text: #faf8ff;
-  --nexus-hero-muted: #d0cbdc;
+    --nexus-hero-purple: #5423F7;
+    --nexus-hero-blue: #244FB2;
+    --nexus-hero-teal: #0A6E7D;
+    --nexus-hero-bg: #F5F7FB;
+    --nexus-hero-border: #E5E7EB;
+    --nexus-hero-text: #202124;
 }
 
 .nexus-hero,
 .nexus-hero * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .nexus-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  min-height: clamp(360px, 31vw, 450px);
-  color: var(--nexus-hero-text);
-  background-color: #070511;
-  background-image:
-    linear-gradient(90deg,
-      rgba(4, 3, 12, .98) 0%,
-      rgba(4, 3, 12, .87) 28%,
-      rgba(7, 4, 18, .48) 56%,
-      rgba(7, 4, 18, .24) 100%),
-    linear-gradient(0deg, rgba(5, 3, 12, .66) 0%, transparent 40%, rgba(5, 3, 12, .12) 100%),
-    url('/images/nexus-hero-bg.webp');
-  background-position: center, center, center 55%;
-  background-size: cover;
-  border-bottom: 1px solid rgba(192, 132, 252, .14);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: clamp(380px, 34vw, 480px);
+
+    color: var(--nexus-hero-text);
+    background-color: var(--nexus-hero-bg);
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(245, 247, 251, .95) 0%,
+            rgba(245, 247, 251, .90) 30%,
+            rgba(245, 247, 251, .70) 45%,
+            rgba(245, 247, 251, .30) 65%,
+            rgba(245, 247, 251, .10) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(245, 247, 251, .22) 0%,
+            transparent 45%,
+            rgba(245, 247, 251, .12) 100%
+        ),
+        url('/images/nexus-hero-bg.png');
+
+    background-position:
+        center,
+        center,
+        center 48%;
+
+    background-size: cover;
+
+    border-bottom: 1px solid var(--nexus-hero-border);
 }
 
 .nexus-hero::after {
-  position: absolute;
-  z-index: -1;
-  right: -9rem;
-  bottom: -16rem;
-  width: 34rem;
-  height: 34rem;
-  border-radius: 50%;
-  background: rgba(126, 34, 206, .11);
-  filter: blur(90px);
-  content: "";
-  pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    right: -9rem;
+    bottom: -16rem;
+
+    width: 34rem;
+    height: 34rem;
+
+    border-radius: 50%;
+
+    background: rgba(84, 35, 247, .12);
+
+    filter: blur(90px);
+
+    content: "";
+    pointer-events: none;
 }
 
 .nexus-hero__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-  align-items: center;
-  gap: clamp(24px, 4vw, 64px);
-  width: min(100% - 64px, 1320px);
-  min-height: inherit;
-  margin-inline: auto;
-  padding-block: 44px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+
+    align-items: center;
+    gap: clamp(24px, 4vw, 64px);
+
+    width: min(100% - 64px, 1320px);
+    min-height: inherit;
+
+    margin-inline: auto;
+    padding-block: 44px;
 }
 
 .nexus-hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 610px;
+    position: relative;
+    z-index: 1;
+
+    max-width: 610px;
 }
 
 .nexus-hero__eyebrow {
-  margin: 0 0 10px;
-  color: var(--nexus-hero-purple-light);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .075em;
+    margin: 0 0 10px;
+
+    color: var(--nexus-hero-purple);
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .075em;
 }
 
 .nexus-hero__title {
-  margin: 0;
-  max-width: 640px;
-  color: var(--nexus-hero-text);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(32px, 3.25vw, 48px);
-  font-weight: 780;
-  letter-spacing: -.045em;
-  line-height: 1.13;
-  text-wrap: balance;
+    margin: 0;
+    max-width: 640px;
+
+    color: var(--nexus-hero-text);
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: clamp(32px, 3.25vw, 48px);
+    font-weight: 780;
+
+    letter-spacing: -.045em;
+    line-height: 1.13;
+
+    text-wrap: balance;
 }
 
 .nexus-hero__title span {
-  color: #b56aff;
-  background: linear-gradient(95deg, #c084fc 0%, #a855f7 46%, #9333ea 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    color: var(--nexus-hero-purple);
+
+    background: #5423F7;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nexus-hero__description {
-  margin: 17px 0 24px;
-  color: var(--nexus-hero-muted);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(13px, 1.05vw, 15px);
-  font-weight: 400;
-  line-height: 1.65;
+    max-width: 470px;
+
+    margin: 17px 0 24px;
+
+    color: rgba(32, 33, 36, .78);
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: clamp(13px, 1.05vw, 15px);
+    font-weight: 400;
+
+    line-height: 1.65;
 }
 
 .nexus-hero__button {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 0 20px;
-  border: 1px solid rgba(216, 180, 254, .28);
-  border-radius: 999px;
-  color: #170824;
-  background: linear-gradient(110deg, #c084fc 0%, #a855f7 55%, #9333ea 100%);
-  box-shadow: 0 7px 26px rgba(126, 34, 206, .18);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+    display: inline-flex;
+
+    min-height: 44px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 0 20px;
+
+    border: 1px solid rgba(84, 35, 247, .25);
+    border-radius: 999px;
+
+    color: #F5F7FB;
+
+    background:  #5423F7;
+    
+    box-shadow: 0 7px 26px rgba(84, 35, 247, .20);
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 180ms ease,
+        filter 180ms ease,
+        box-shadow 180ms ease;
 }
 
 .nexus-hero__button svg {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 180ms ease;
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform 180ms ease;
 }
 
 .nexus-hero__button:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 10px 30px rgba(168, 85, 247, .3);
-  transform: translateY(-2px);
+    filter: brightness(1.08);
+
+    box-shadow: 0 10px 30px rgba(84, 35, 247, .27);
+
+    transform: translateY(-2px);
 }
 
 .nexus-hero__button:hover svg {
-  transform: translateX(3px);
+    transform: translateX(3px);
 }
 
 .nexus-hero__button:focus-visible {
-  outline: 2px solid #e9d5ff;
-  outline-offset: 4px;
+    outline: 2px solid var(--nexus-hero-teal);
+    outline-offset: 4px;
 }
 
 .nexus-hero__visual {
-  position: relative;
-  display: flex;
-  min-height: 275px;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+
+    display: flex;
+
+    min-height: 275px;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .nexus-hero__brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform: translate(0, -3px);
-  filter: drop-shadow(0 0 26px rgba(147, 51, 234, .18));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translate(0, -8px);
+
+    filter: drop-shadow(
+        0 8px 22px rgba(84, 35, 247, .20)
+    );
 }
 
 .nexus-hero__symbol {
-  display: block;
-  width: clamp(108px, 11.5vw, 156px);
-  height: auto;
-  overflow: visible;
+    display: block;
+
+    width: clamp(108px, 11.5vw, 156px);
+    height: auto;
+
+    overflow: visible;
+
+    filter: drop-shadow(
+        0 0 18px rgba(84, 35, 247, .25)
+    );
 }
 
 .nexus-hero__wordmark {
-  margin-top: 1px;
-  padding-left: .28em;
-  color: rgba(250, 248, 255, .9);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(24px, 2.5vw, 34px);
-  font-weight: 400;
-  letter-spacing: .29em;
-  line-height: 1.2;
+    margin-top: 5px;
+    padding-left: .28em;
+
+    color: #202124;
+
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: clamp(24px, 2.5vw, 34px);
+    font-weight: 600;
+
+    letter-spacing: .29em;
+    line-height: 1.2;
+
+    text-shadow: 0 2px 12px rgba(245, 247, 251, .65);
 }
 
-.nexus-hero__keywords {
-  position: absolute;
-  right: 0;
-  bottom: 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  padding: 2px 13px 2px 0;
-  border-right: 2px solid var(--nexus-hero-purple-light);
-  color: rgba(221, 211, 245, .78);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: .055em;
+
+
+
+.nexus-hero__brand {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translate(0, -8px);
+
+    filter: none;
 }
 
+.nexus-hero__brand::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    top: 48%;
+    left: 50%;
+
+    width: clamp(300px, 28vw, 440px);
+    height: clamp(230px, 23vw, 350px);
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, .94) 28%,
+        rgba(255, 255, 255, .72) 48%,
+        rgba(255, 255, 255, .25) 65%,
+        transparent 78%
+    );
+
+    filter: blur(22px);
+    pointer-events: none;
+}
+
+.nexus-hero__symbol,
+.nexus-hero__wordmark {
+    position: relative;
+    z-index: 1;
+}
+
+.nexus-hero__symbol {
+    filter: drop-shadow(
+        0 5px 16px rgba(84, 35, 247, .22)
+    );
+}
+
+.nexus-hero__wordmark {
+    text-shadow: 0 2px 12px rgba(255, 255, 255, .9);
+}
