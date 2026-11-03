@@ -77,40 +77,40 @@ INSERT INTO membros (
 (
     'Laura Mathias',
     'LM',
-    'Desenvolvedora Full Stack',
-    'Apaixonada por tecnologia, gosta de resolver problemas e transformar ideias em código.',
+    'UX/UI Designer',
+    'Contribui para o desenvolvimento das funcionalidades e integração das soluções da equipe.',
     '/images/membros/laura-mathias.jpg',
     '', '', '', NOW(), NOW()
 ),
 (
     'Luiz Henrique Cubas',
     'LC',
-    'Desenvolvedor Frontend',
-    'Gosta de criar interfaces intuitivas e experiências que fazem a diferença.',
+    'Documentação e Design',
+    'Responsável pela organização da documentação do projeto e pelo desenvolvimento dos elementos visuais, contribuindo para a clareza das informações e a identidade visual da equipe.',
     '/images/membros/luiz-cubas.jpg',
     '', '', '', NOW(), NOW()
 ),
 (
     'Mario Takahashi',
     'MT',
-    'Desenvolvedor Backend',
-    'Focado em APIs, bancos de dados e em construir sistemas robustos e escaláveis.',
+    'Desenvolvedor Back-End',
+    'Trabalha na lógica da aplicação, nas APIs e na integração dos dados.',
     '/images/membros/mario-takahashi.jpg',
     '', '', '', NOW(), NOW()
 ),
 (
     'Millie Morelli',
     'MM',
-    'UX/UI Designer',
-    'Acredita que um bom design torna a tecnologia mais acessível e humana.',
+    'Documentação e Desenvolvimento Front-End',
+    'Responsável pela elaboração e organização da documentação do projeto, além do desenvolvimento das interfaces front-end, buscando garantir uma navegação intuitiva e uma boa experiência para os usuários.',
     '/images/membros/millie-morelli.jpg',
     '', '', '', NOW(), NOW()
 ),
 (
     'Victor Theodoro',
     'VT',
-    'UX/UI Designer',
-    'Acredita que um bom design torna a tecnologia mais acessível e humana.',
+    'Desenvolvedor Full-Stack',
+    'Responsável pelo desenvolvimento e integração das funcionalidades do sistema, atuando tanto na construção das interfaces quanto na implementação da lógica e dos recursos do backend.',
     '/images/membros/victor-theodoro.jpg',
     '', '', '', NOW(), NOW()
 );
